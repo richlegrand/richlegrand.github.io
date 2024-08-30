@@ -23,10 +23,12 @@ window.addEventListener('load', function() {
     if (1) {
         const imgElement = document.querySelector('img.mjpeg');
         imgElement.addEventListener('click', function() {
+            debugConsole.log('Click!');
             requestFullScreen(imgElement);
         });
         imgElement.addEventListener('touchstart', function() {
             requestFullScreen(imgElement);
+            debugConsole.log('touch!');
         });
     }
 });
@@ -57,5 +59,3 @@ class DebugConsole {
 
 // Usage example
 const debugConsole = new DebugConsole('debug-console');
-debugConsole.log('This is a debug message.');
-debugConsole.log('Another message.');
