@@ -20,8 +20,13 @@ function requestFullScreen(element) {
 }
 
 window.addEventListener('load', function() {
-    if (1) {//isMobileDevice()) {
+    if (1) {
         const imgElement = document.querySelector('img.mjpeg');
-        requestFullScreen(imgElement);
+        imgElement.addEventListener('click', function() {
+            requestFullScreen(imgElement);
+        });
+        imgElement.addEventListener('touchstart', function() {
+            requestFullScreen(imgElement);
+        });
     }
 });
