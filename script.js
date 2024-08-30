@@ -19,42 +19,31 @@ function requestFullScreen(element) {
     }
 }
 
-function resizeImageToViewport() {
+function adjustImage() {
     const imgElement = document.querySelector('img.mjpeg');
     if (imgElement) {
-        imgElement.style.width = window.innerWidth + 'px';
-        imgElement.style.height = window.innerHeight + 'px';
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        const imageAspectRatio = imgElement.naturalWidth / imgElement.naturalHeight;
+        const viewportAspectRatio = viewportWidth / viewportHeight;
+
+        if (viewportAspectRatio > imageAspectRatio) {
+            // Viewport is wider than the image, so fit to height
+            imgElement.style.width = 'auto';
+            imgElement.style.height = '100vh';
+        } else {
+            // Viewport is narrower than the image, so fit to width
+            imgElement.style.width = '100vw';
+            imgElement.style.height = 'auto';
+        }
     }
 }
 
-window.addEventListener('resize', resizeImageToViewport);
-window.addEventListener('orientationchange', resizeImageToViewport);
+window.addEventListener('resize', adjustImage);
+window.addEventListener('orientationchange', adjustImage);
 
 // Initial call to set the size on load
-resizeImageToViewport();
-class DebugConsole {
-    constructor(elementId) {
-        this.consoleElement = document.getElementById(elementId);
-        if (!this.consoleElement) {
-            console.error(`Element with id ${elementId} not found.`);
-        }
-    }
-
-    log(message) {
-        if (this.consoleElement) {
-            const msgElement = document.createElement('p');
-            msgElement.textContent = message;
-            this.consoleElement.appendChild(msgElement);
-            this.consoleElement.scrollTop = this.consoleElement.scrollHeight;
-        }
-    }
-
-    clear() {
-        if (this.consoleElement) {
-            this.consoleElement.innerHTML = '';
-        }
-    }
-}
+adjustImage();
 
 // Usage example
 const debugConsole = new DebugConsole('debug-console');
