@@ -31,3 +31,24 @@ img.mjpeg {
         object-fit: contain; /* Maintain aspect ratio */
     }
 }
+
+#debug-console {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
+    background-color: #1e1e1e;
+    color: #dcdcdc;
+    font-family: monospace;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 1000;
+    border-top: 2px solid #333;
+}
+
+#debug-console p {
+    margin: 0;
+    padding: 2px 0;
+}

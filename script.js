@@ -30,3 +30,32 @@ window.addEventListener('load', function() {
         });
     }
 });
+
+class DebugConsole {
+    constructor(elementId) {
+        this.consoleElement = document.getElementById(elementId);
+        if (!this.consoleElement) {
+            console.error(`Element with id ${elementId} not found.`);
+        }
+    }
+
+    log(message) {
+        if (this.consoleElement) {
+            const msgElement = document.createElement('p');
+            msgElement.textContent = message;
+            this.consoleElement.appendChild(msgElement);
+            this.consoleElement.scrollTop = this.consoleElement.scrollHeight;
+        }
+    }
+
+    clear() {
+        if (this.consoleElement) {
+            this.consoleElement.innerHTML = '';
+        }
+    }
+}
+
+// Usage example
+const debugConsole = new DebugConsole('debug-console');
+debugConsole.log('This is a debug message.');
+debugConsole.log('Another message.');
