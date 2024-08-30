@@ -19,20 +19,19 @@ function requestFullScreen(element) {
     }
 }
 
-window.addEventListener('load', function() {
-    if (1) {
-        const imgElement = document.querySelector('img.mjpeg');
-        imgElement.addEventListener('click', function() {
-            debugConsole.log('Click!');
-            requestFullScreen(imgElement);
-        });
-        imgElement.addEventListener('touchstart', function() {
-            requestFullScreen(imgElement);
-            debugConsole.log('touch!');
-        });
+function resizeImageToViewport() {
+    const imgElement = document.querySelector('img.mjpeg');
+    if (imgElement) {
+        imgElement.style.width = window.innerWidth + 'px';
+        imgElement.style.height = window.innerHeight + 'px';
     }
-});
+}
 
+window.addEventListener('resize', resizeImageToViewport);
+window.addEventListener('orientationchange', resizeImageToViewport);
+
+// Initial call to set the size on load
+resizeImageToViewport();
 class DebugConsole {
     constructor(elementId) {
         this.consoleElement = document.getElementById(elementId);
