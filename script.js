@@ -20,7 +20,7 @@ function requestFullScreen(element) {
 }
 
 window.addEventListener('load', function() {
-    if (isMobileDevice()) {
+    if (1) {//isMobileDevice()) {
         const imgElement = document.querySelector('img.mjpeg');
         requestFullScreen(imgElement);
     }
