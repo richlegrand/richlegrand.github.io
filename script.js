@@ -472,7 +472,7 @@ var JoyStick = (function(container, parameters, callback)
 
 // Create JoyStick object into the DIV 'joyDiv'
 const joyConfig = {
-    internalStrokeColor; "#000000",
+    internalStrokeColor: "#000000",
     externalStrokeColor: "#000000",
     internalFillColor: "#808080"
 };
