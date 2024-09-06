@@ -471,7 +471,12 @@ var JoyStick = (function(container, parameters, callback)
 });
 
 // Create JoyStick object into the DIV 'joyDiv'
-var joy = new JoyStick('joyDiv');
+const joyConfig = {
+    internalStrokeColor; "#000000"
+    externalStrokeColor: "#000000",
+    internalFillColor: "#808080"
+};
+var joy = new JoyStick('joyDiv', joyConfig);
 
 function printVals() {
     console.log(joy.GetX(), joy.GetY());
