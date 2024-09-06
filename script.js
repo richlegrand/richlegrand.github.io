@@ -39,14 +39,14 @@ function adjustImage() {
     }
 }
 
-window.addEventListener('resize', adjustImage);
-window.addEventListener('orientationchange', adjustImage);
+//window.addEventListener('resize', adjustImage);
+//window.addEventListener('orientationchange', adjustImage);
 
 // Initial call to set the size on load
-adjustImage();
+//adjustImage();
 
 // Usage example
-const debugConsole = new DebugConsole('debug-console');
+//const debugConsole = new DebugConsole('debug-console');
 
 /*
  * Name          : joy.js
