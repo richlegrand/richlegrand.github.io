@@ -476,10 +476,10 @@ const joyConfig = {
     externalStrokeColor: "#000000",
     internalFillColor: "#808080"
 };
-var joy = new JoyStick('joyDiv', joyConfig);
 
-function printVals() {
-    console.log(joy.GetX(), joy.GetY());
+function joystick(data) {
+    console.log(data.xPosition, data.yPosition, data.x, data,y);
 }
 
-setInterval(printVals, 50);
+var joy = new JoyStick('joyDiv', joyConfig, joystick);
+
