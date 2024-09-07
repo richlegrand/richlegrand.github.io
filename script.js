@@ -478,7 +478,7 @@ const joyConfig = {
 };
 
 function joystick(data) {
-    console.log(data.xPosition, data.yPosition, data.x, data,y);
+    console.log(data.xPosition, data.yPosition, data.x, data.y);
 }
 
 var joy = new JoyStick('joyDiv', joyConfig, joystick);
